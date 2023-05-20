@@ -86,10 +86,12 @@ const insertAt = (arr, indice, valor) => {
 const removeAt = (arr, indice) => {
     if(indice <= (arr.length - 1) && indice >= 0){
 
+        // Si el indice es la posicion 0
         if(indice === 0){
+            // Reutilizamos la funcion popAlFrente()
             return popAlFrente(arr);
         }
-        
+        // Si es al final utilizamos el pop()
         if(indice === arr.length - 1){
             let valor = arr[indice];
             arr.pop();
@@ -100,7 +102,7 @@ const removeAt = (arr, indice) => {
 
         let aux = [];
         let j = 0;
-
+        // Cargamos a un nuevo arreglo la matriz sin el elemento a eliminar
         for(let i = 0; i < arr.length; i++){
             if(i !== indice){
                 aux[j] = arr[i];
@@ -110,6 +112,7 @@ const removeAt = (arr, indice) => {
 
         arr.pop();
 
+        // Lo reasignamos al arreglo original
         for(let i = 0; i < arr.length; i++){
             arr[i] = aux[i];
         }
@@ -131,8 +134,9 @@ const removeAt = (arr, indice) => {
 // Pares de intercambio
 const tradingPairs = arr => {
     let aux;
-
+    // PReguntamos si es par la longitud
     if(arr.length%2 === 0){
+        // Iteramos cada dos posicion para el intercambio
         for(let i = 0; i <= (arr.length / 2); i+=2){
             aux = arr[i + 1];
             arr[i + 1] = arr[i];
@@ -140,7 +144,7 @@ const tradingPairs = arr => {
         }
         return;
     }
-
+    // En caso de que sea impar
     for(let i = 0; i <= ((arr.length - 1) / 2); i+=2){
         aux = arr[i + 1];
         arr[i + 1] = arr[i];
